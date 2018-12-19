@@ -5,7 +5,7 @@ import io from 'socket.io-client'
 import WeatherSection from './containers/WeatherSection'
 
 const HOST = process.env.NODE_ENV === 'production'
-  ? 'http://acidlabs-api.herokuapp.com'
+  ? 'https://acidlabs-api.herokuapp.com'
   : 'http://localhost:3000'
 
 const socket = io(HOST)
