@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import io from 'socket.io-client'
 
+import BarLoader from 'react-spinners/BarLoader'
+
 import WeatherSection from './containers/WeatherSection'
 
 const HOST = process.env.NODE_ENV === 'production'
@@ -11,8 +13,11 @@ const HOST = process.env.NODE_ENV === 'production'
 const socket = io(HOST)
 
 const Wrapper = styled.div`
-  max-width: 50rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 60rem;
   width: 100%;
+  height: 100%;
   margin: auto;
   padding: 2rem;
 `
@@ -23,6 +28,10 @@ const Title = styled.h1`
 `
 
 const GlobalStyle = createGlobalStyle`
+  html, body, #root {
+    height: 100%;
+  }
+
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
       'Fira Sans', 'Helvetica Neue', sans-serif;
@@ -48,8 +57,10 @@ const App = () => {
   return (
     <Wrapper>
       <Title>Acid Labs Task</Title>
-      <WeatherSection forecast={forecast} />
-
+      {!forecast.length
+        ? <div style={{ margin: 'auto' }} ><BarLoader /></div>
+        : <WeatherSection forecast={forecast} />
+      }
       <GlobalStyle />
     </Wrapper>
   )
