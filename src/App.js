@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
 import io from 'socket.io-client'
 
 import BarLoader from 'react-spinners/BarLoader'
@@ -27,28 +27,6 @@ const Title = styled.h1`
   margin-bottom: 4rem;
 `
 
-const GlobalStyle = createGlobalStyle`
-  html, body, #root {
-    height: 100%;
-  }
-
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-      'Fira Sans', 'Helvetica Neue', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  body, ul, li {
-    padding: 0;
-    margin: 0;
-  }
-
-  * {
-    box-sizing: border-box
-  }
-`
-
 const App = () => {
   const [forecast, setForecast] = useState([])
 
@@ -61,7 +39,6 @@ const App = () => {
         ? <div style={{ margin: 'auto' }} ><BarLoader /></div>
         : <WeatherSection forecast={forecast} />
       }
-      <GlobalStyle />
     </Wrapper>
   )
 }

@@ -22,7 +22,7 @@ const Details = styled.div`
   }
 `
 
-const WeatherCard = ({ title, timezone, forecast, ...props }) => {
+const AppCard = ({ title, timezone, forecast, ...props }) => {
   return (
     <div {...props}>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -43,21 +43,22 @@ const WeatherCard = ({ title, timezone, forecast, ...props }) => {
   )
 }
 
-export default styled(WeatherCard)`
-  border-radius: .8rem;
+export default styled(AppCard)`
+  display: flex;
+  flex-direction: column;
   padding: 1.5rem;
+  width: 100%;
+  min-height: 12rem;
+
   background:
     linear-gradient(to top, rgba(0,0,0,.8), rgba(0,0,0,.2)),
     ${props => props.bg || '#f9f9f9'};
   background-size: cover;
   color: ${props => props.bg ? 'white' : '#222'};
-  width: 100%;
-  min-height: 12rem;
+  border-radius: .8rem;
+
   word-break: break-all;
   overflow: hidden;
-
-  display: flex;
-  flex-direction: column;
 
   will-change: opacity, transform;
 `
