@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import io from 'socket.io-client'
 
@@ -36,7 +36,10 @@ const Title = styled.h1`
 const App = () => {
   const [forecast, setForecast] = useState([])
 
-  socket.on('forecast', setForecast)
+  useEffect(() => {
+    socket.on('forecast', setForecast)
+    return null
+  }, [])
 
   return (
     <Wrapper>
