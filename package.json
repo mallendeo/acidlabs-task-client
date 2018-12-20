@@ -35,6 +35,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "eslint-config-standard": "^12.0.0",
     "eslint-config-standard-react": "^7.0.2",
     "eslint-plugin-react": "^7.11.1",
     "standard": "^12.0.1"

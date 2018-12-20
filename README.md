@@ -1,6 +1,6 @@
 # Acid Labs Task (Front-end)
 
-This needs the [acidlabs-task-server](https://github.com/mallendeo/acidlabs-task-server) project in order to work.
+This needs [acidlabs-task-server](https://github.com/mallendeo/acidlabs-task-server) running in order to work.
 
 ### Clone & Install
 
