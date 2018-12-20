@@ -5,10 +5,13 @@ import DropletIcon from 'react-feather/dist/icons/droplet'
 import ThermometherIcon from 'react-feather/dist/icons/thermometer'
 import UmbrellaIcon from 'react-feather/dist/icons/umbrella'
 
-const Details = styled.div`
+const Row = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: auto 0;
+`
+
+const Details = styled(Row)`
+  margin-top: auto;
 
   small {
     display: flex;
@@ -22,17 +25,20 @@ const Details = styled.div`
   }
 `
 
-const AppCard = ({ title, timezone, forecast, ...props }) => {
+const Time = styled.strong`
+  font-size: 1.5rem;
+  margin: auto;
+`
+
+const AppCard = ({ title, forecast, time, ...props }) => {
   return (
     <div {...props}>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <Row>
         <strong>{title}</strong>
-        <span>{forecast.summary}</span>
-      </div>
+        <small>{forecast.summary}</small>
+      </Row>
 
-      <small style={{ marginTop: 8, opacity: 0.7 }}>
-        <strong>Timezone: </strong>{timezone}
-      </small>
+      <Time>{time}</Time>
 
       <Details>
         <small><ThermometherIcon size={16} /> {forecast.temperature}&deg;C</small>

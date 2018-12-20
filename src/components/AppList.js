@@ -26,8 +26,8 @@ const AppList = ({ forecast, show, className }) => {
           <AppCard
             bg={item.bg}
             title={item.city}
-            timezone={item.tz}
-            forecast={item.forecast} />
+            forecast={item.forecast}
+            time={item.currTime} />
         </ListItem>
       )}
     </List>
