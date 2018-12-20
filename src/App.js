@@ -6,9 +6,15 @@ import BarLoader from 'react-spinners/BarLoader'
 
 import WeatherSection from './containers/WeatherSection'
 
-const HOST = process.env.NODE_ENV === 'production'
-  ? 'https://acidlabs-api.herokuapp.com'
-  : 'http://localhost:3000'
+const {
+  REACT_APP_API_HOST = 'https://acidlabs-api.herokuapp.com',
+  REACT_APP_API_PORT = 3000,
+  NODE_ENV
+} = process.env
+
+const HOST = NODE_ENV === 'production'
+  ? REACT_APP_API_HOST
+  : `http://localhost:${REACT_APP_API_PORT}`
 
 const socket = io(HOST)
 
