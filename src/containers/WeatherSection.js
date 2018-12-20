@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
+import MaximizeIcon from 'react-feather/dist/icons/maximize'
 
 import AppList from '../components/AppList'
+import AppButton from '../components/AppButton'
+
 import { IMAGES } from '../fixtures'
 
-const getBg = (city, size = 400) => {
+const getBg = (city, size = 600) => {
   if (city && IMAGES[city]) {
     const qry = `?auto=format&fit=crop&w=${size}&q=80`
     const index = Math.round(Math.random())
@@ -19,6 +22,17 @@ const WeatherSection = ({ forecast, className }) => {
   }))
 
   const [init, setInit] = useState(false)
+  const [fullscreen, setFullscreen] = useState(false)
+
+  const toggleFullscreen = () => {
+    if (!fullscreen) {
+      document.documentElement.requestFullscreen()
+    } else {
+      document.exitFullscreen && document.exitFullscreen()
+    }
+
+    setFullscreen(!fullscreen)
+  }
 
   useEffect(() => {
     setInit(true)
@@ -26,10 +40,20 @@ const WeatherSection = ({ forecast, className }) => {
   }, [])
 
   return (
-    <AppList
-      show={init}
-      forecast={withImages}
-      className={className} />
+    <Fragment>
+      <AppButton
+        style={{ alignSelf: 'flex-end', marginBottom: 32 }}
+        onClick={toggleFullscreen}>
+        <MaximizeIcon size={24} />
+      </AppButton>
+
+      <AppList
+        onClick={toggleFullscreen}
+        fullscreen={fullscreen}
+        show={init}
+        forecast={withImages}
+        className={className} />
+    </Fragment>
   )
 }
 

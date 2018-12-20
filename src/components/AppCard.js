@@ -11,8 +11,6 @@ const Row = styled.div`
 `
 
 const Details = styled(Row)`
-  margin-top: auto;
-
   small {
     display: flex;
     flex-direction: column;
@@ -54,14 +52,16 @@ export default styled(AppCard)`
   flex-direction: column;
   padding: 1.5rem;
   width: 100%;
+  height: 100%;
   min-height: 12rem;
 
   background:
     linear-gradient(to top, rgba(0,0,0,.8), rgba(0,0,0,.2)),
-    ${props => props.bg || '#f9f9f9'};
+    ${({ bg }) => bg || '#f9f9f9'};
   background-size: cover;
-  color: ${props => props.bg ? 'white' : '#222'};
-  border-radius: .8rem;
+  color: ${({ bg }) => bg ? 'white' : '#222'};
+
+  border-radius: ${({ rounded }) => rounded ? '.8rem' : '0'};
 
   word-break: break-all;
   overflow: hidden;

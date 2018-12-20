@@ -30,7 +30,8 @@ const Wrapper = styled.div`
 
 const Title = styled.h1`
   color: #444;
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
+  font-weight: 300;
 `
 
 const App = () => {

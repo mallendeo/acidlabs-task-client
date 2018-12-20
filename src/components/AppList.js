@@ -16,14 +16,15 @@ const ListItem = posed.li({
   hide: { opacity: 0, y: '2rem', transition }
 })
 
-const AppList = ({ forecast, show, className }) => {
+const AppList = ({ forecast, show, ...props }) => {
   return (
     <List
       pose={show ? 'show' : 'hide'}
-      className={className}>
+      {...props}>
       {forecast.map(item =>
         <ListItem key={item.city}>
           <AppCard
+            rounded={!props.fullscreen ? 1 : 0}
             bg={item.bg}
             title={item.city}
             forecast={item.forecast}
@@ -37,8 +38,16 @@ const AppList = ({ forecast, show, className }) => {
 export default styled(AppList)`
   display: grid;
   list-style: none;
-  grid-gap: 1rem;
   grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+
+  ${props => props.fullscreen && `
+    grid-gap: 0;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+  `}
 
   @media screen and (max-width: 50rem) {
     grid-template-columns: 1fr 1fr;
