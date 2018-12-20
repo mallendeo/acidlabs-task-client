@@ -40,8 +40,8 @@ const AppCard = ({ title, forecast, time, ...props }) => {
 
       <Details>
         <small><ThermometherIcon size={16} /> {forecast.temperature}&deg;C</small>
-        <small><DropletIcon size={16} /> {forecast.humidity}%</small>
-        <small><UmbrellaIcon size={16} /> {forecast.precipProbability}%</small>
+        <small><DropletIcon size={16} /> {forecast.humidityP}%</small>
+        <small><UmbrellaIcon size={16} /> {forecast.precipProbabilityP}%</small>
       </Details>
     </div>
   )
