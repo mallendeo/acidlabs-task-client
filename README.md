@@ -52,6 +52,11 @@ https://acidlabs-frontend-test.herokuapp.com/ | https://git.heroku.com/acidlabs-
 $ heroku git:remote -a $APP_NAME
 ```
 
+Set the `REACT_APP_API_HOST` variable:
+```bash
+$ heroku config:set REACT_APP_API_HOST="https://acidlabs-api-test.herokuapp.com/"
+```
+
 Finally, push the repo to Heroku's remote:
 ```bash
 $ git push heroku master
