@@ -19,8 +19,11 @@ const WeatherSection = ({ forecast, className }) => {
   const withImages = forecast.map(item => ({
     ...item,
     bg: getBg(item.city),
-    humidityP: Math.round(item.humidity * 100),
-    precipProbabilityP: Math.round(item.precipProbability * 100)
+    forecast: {
+      ...item.forecast,
+      humidityP: Math.round(item.forecast.humidity * 100),
+      precipProbabilityP: Math.round(item.forecast.precipProbability * 100)
+    }
   }))
 
   const [init, setInit] = useState(false)

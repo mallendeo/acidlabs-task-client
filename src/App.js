@@ -8,7 +8,7 @@ import WeatherSection from './containers/WeatherSection'
 
 const {
   REACT_APP_API_HOST = 'https://acidlabs-api.herokuapp.com',
-  REACT_APP_API_PORT = 3000,
+  REACT_APP_API_PORT = 3001,
   NODE_ENV
 } = process.env
 
