@@ -45,10 +45,6 @@ Create a new app, then add a git remote using:
 APP_NAME=acidlabs-frontend-test
 
 $ heroku create $APP_NAME
-
-Creating app... done, ⬢ acidlabs-frontend-test
-https://acidlabs-frontend-test.herokuapp.com/ | https://git.heroku.com/acidlabs-frontend-test.git
-
 $ heroku git:remote -a $APP_NAME
 ```
 
